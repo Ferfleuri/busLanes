@@ -1,0 +1,7 @@
+{
+  "name": "busLanes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
