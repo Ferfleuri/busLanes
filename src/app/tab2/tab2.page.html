@@ -7,7 +7,12 @@
 </ion-header>
 
 <ion-content color="dark" [fullscreen]="true" class="ion-padding">
-  <ion-searchbar show-clear-button="always" placeholder="Pesquisar"></ion-searchbar>
+  <ion-searchbar color="medium" show-clear-button="always" placeholder="Pesquisar"></ion-searchbar>
+
+
+  <ion-button expand="block" (click)="openModal(1)">linha 1 - Centro X São Judass</ion-button>
+  <ion-button expand="block" (click)="openModal(2)">linha 2 - Lençóis Pta X Alfredo Guedess</ion-button>
+
 
   <ion-button  expand="block" (click)="setOpen(true)">linha 1 - Centro X São Judas</ion-button>
   <ion-modal [isOpen]="isModalOpen">

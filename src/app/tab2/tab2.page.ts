@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { RotasPage } from '../rotas/rotas.page';
 
 
 @Component({
@@ -13,6 +15,14 @@ export class Tab2Page {
     this.isModalOpen = isOpen;
   }
 
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
+
+  async openModal(rota: any) {
+      const modal = await this.modalCtrl.create({
+        component : RotasPage,
+        componentProps: { rota: rota },
+      });
+      modal.present();
+  }
 
 }
