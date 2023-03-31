@@ -6,18 +6,47 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark" [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-searchbar color="medium" show-clear-button="always" placeholder="Pesquisar"></ion-searchbar>
 
   <ion-accordion-group>
+
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>Linha 1</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        horários
+        <ion-grid class="meio">
+          <ion-accordion-group>
+          <ion-accordion value=" eleventh">
+            <ion-item slot="header" color="light">
+              <ion-label>Terminal Urbano (centro)</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              First Content
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+          Segunda à Sexta
+          <ion-row>
+            <ion-col>
+              Terminal Urbano
+              <br>
+              08:00
+              <br>
+              16:40
+            </ion-col>
+            <ion-col>São Judas Tadeu
+              <br>
+              08:15
+              <br>
+              17:00
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
     </ion-accordion>
+
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
         <ion-label>Linha 2</ion-label>
@@ -77,6 +106,14 @@
     <ion-accordion value="ninth">
       <ion-item slot="header" color="light">
         <ion-label>Linha 9</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Third Content
+      </div>
+    </ion-accordion>
+    <ion-accordion value="tenth">
+      <ion-item slot="header" color="light">
+        <ion-label>Linha 10</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         Third Content
