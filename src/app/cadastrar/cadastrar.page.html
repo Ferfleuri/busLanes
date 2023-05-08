@@ -6,15 +6,28 @@
 
 <ion-content [fullscreen]="true" class="fundo">
   <ion-card>
-  <ion-card-header>
-    <ion-card-title class="title">Cadastro</ion-card-title>
-  </ion-card-header>
+    <ion-card-header>
+      <ion-card-title class="title">Cadastro</ion-card-title>
+    </ion-card-header>
 
-      <input type="text" placeholder="Usuário">
+    <ion-item color="light">
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        labelPlacement="floating"
+        helperText="Enter a valid email"
+        errorText="Invalid email"
+        ngModel
+        email
+      ></ion-input>
+    </ion-item>
+
     <br><br>
- <input type="password" placeholder="Senha">
+    <input type="password" placeholder="Senha">
 
 
-</ion-card>
+  </ion-card>
 
 </ion-content>
