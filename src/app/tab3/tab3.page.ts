@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { GoogleMap } from '@capacitor/google-maps';
+import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -40,12 +40,36 @@ export class Tab3Page {
       },
     });
 
-    this.addMarker(this.center.lat, this.center.lng);
+
+    this.addMarkers(this.center.lat, this.center.lng);
     this.addListeners();
 
   } catch(e) {
     console.log(e);
   }
+  }
+
+  async addMarkers(lat: any, lng: any) {
+    // Add a marker to the map
+    // if(this.markerId) this.removeMarker();
+    await this.newMap.addMarkers([
+      {
+        coordinate: {
+          lat: lat,
+          lng: lng,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.6250678,
+          lng: -48.7915618,
+        },
+        // title: ,
+        draggable: true
+      },
+    ]);
   }
 
   async addMarker(lat:any , lng:any) {
@@ -67,19 +91,20 @@ export class Tab3Page {
 
     await this.newMap.setOnMarkerClickListener((event) => {
       console.log('setOnMarkerClickListener',event);
+      //this.removeMarker(event.markerId)
     });
 
-    await this.newMap,setOnMapClickListener((event) => {
+    await this.newMap.setOnMapClickListener((event) => {
       console.log('setOnMapClickListener',event);
       this.addMarker(event.latitude, event.longitude);
     });
 
-    await this.newMap,setOnMyLocationButtonClickListener((event) => {
-      console.log('setOnMyLocationButtonClickListener',event);
-      this.addMarker(event.latitude, event.longitude);
+    await this.newMap.setOnMyLocationButtonClickListener((event) => {
+      console.log('setOnMyLocationButtonClickListener', event);
+      //this.addMarker(event.latitude, event.longitude);
     });
 
-    await this.newMap,setOnMyLocationClickListener((event) => {
+    await this.newMap.setOnMyLocationClickListener((event) => {
       console.log('setOnMyLocationClickListener',event);
       this.addMarker(event.latitude, event.longitude);
     });
@@ -88,15 +113,4 @@ export class Tab3Page {
 
 }
 
-function setOnMapClickListener(arg0: (event: any) => void) {
-  throw new Error('Function not implemented.');
-}
-
-function setOnMyLocationButtonClickListener(arg0: (event: any) => void) {
-  throw new Error('Function not implemented.');
-}
-
-function setOnMyLocationClickListener(arg0: (event: any) => void) {
-  throw new Error('Function not implemented.');
-}
 
