@@ -40,6 +40,7 @@ export class Tab3Page {
       },
     });
 
+    await this.newMap.enableCurrentLocation(true);
 
     this.addMarkers(this.center.lat, this.center.lng);
     this.addListeners();
