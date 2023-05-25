@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 
@@ -12,8 +13,8 @@ export class Tab3Page {
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
-    lat: -22.5956355,
-    lng: -48.8423376,
+    lat: -22.624835378524555,
+    lng: -48.79198876387481
   };
   markerId!: string;
 
@@ -26,6 +27,10 @@ export class Tab3Page {
 
   ngAfterViewInit() {
     this.createMap();
+  }
+
+  async locate() {
+    if(this.newMap) await this.newMap.enableCurrentLocation(true);
   }
 
   async createMap() {
@@ -64,8 +69,96 @@ export class Tab3Page {
       },
       {
         coordinate: {
-          lat: -22.6250678,
-          lng: -48.7915618,
+          lat: -22.598846013100346,
+          lng: -48.79267247677574,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.613259378290675,
+          lng: -48.8006895164848,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.607793293529824,
+          lng: -48.80561345997716,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.583447795650127,
+          lng: -48.80798646884565,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.625587709246492,
+          lng: -48.79120994065258,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.62588196721611,
+          lng: -48.787840012935455,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.623929327569748,
+          lng: -48.788373308590714,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.62220126860164,
+          lng: -48.787527094534084,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.622426875802326,
+          lng: -48.79251339457737,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.62099021775575,
+          lng: -48.789357405540365,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.619388620892558,
+          lng: -48.79112005233765,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.615009874333353,
+          lng: -48.78927227521008,
         },
         // title: ,
         draggable: true
