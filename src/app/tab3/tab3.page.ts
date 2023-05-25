@@ -13,8 +13,8 @@ export class Tab3Page {
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
-    lat: -22.624835378524555,
-    lng: -48.79198876387481
+    lat: -22.624715868355583,
+    lng: -48.79210973635069
   };
   markerId!: string;
 
@@ -77,8 +77,8 @@ export class Tab3Page {
       },
       {
         coordinate: {
-          lat: -22.613259378290675,
-          lng: -48.8006895164848,
+          lat: -22.613496872282262,
+          lng: -48.80050887787673,
         },
         // title: ,
         draggable: true
@@ -159,6 +159,158 @@ export class Tab3Page {
         coordinate: {
           lat: -22.615009874333353,
           lng: -48.78927227521008,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.58801307299668,
+          lng: -48.812518324544634,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.587744959229497,
+          lng: -48.81400541616176,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.586239967723618,
+          lng: -48.81539494739898,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.582764858264163,
+          lng: -48.816676429341136,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.585120352945477,
+          lng: -48.8123110863175,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.585120352945477,
+          lng: -48.8123110863175,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.586694226841537,
+          lng: -48.81342946197062,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.584008501614456,
+          lng: -48.81552815437317,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.589174042633186,
+          lng: -48.807719392668155,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.5889950677061,
+          lng: -48.807456424158545,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.573474880501493,
+          lng:  -48.819039380307295,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.59076066810493,
+          lng:  -48.79740959975708,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.594924614833243,
+          lng:  -48.79896283149719,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.573591571399124,
+          lng:  -48.81897167657231,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.574856008811278,
+          lng: -48.8181151098313,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.576010501842266,
+          lng: -48.81701156432866,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.57590491488931,
+          lng: -48.816991996631195,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.57754902555634,
+          lng: -48.815296564593574,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.577247244694753,
+          lng:  -48.81551719418729,
         },
         // title: ,
         draggable: true
