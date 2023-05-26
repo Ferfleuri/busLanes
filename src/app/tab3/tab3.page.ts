@@ -315,6 +315,70 @@ export class Tab3Page {
         // title: ,
         draggable: true
       },
+      {
+        coordinate: {
+          lat:-22.62421177533416,
+          lng: -48.79248765205062,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.623716809228725,
+          lng: -48.79306817043952,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.607974453192707,
+          lng: -48.80484327087303,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.60512436507904,
+          lng: -48.80458349876632,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.603339907045154,
+          lng: -48.809336752842924,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.60566658443118,
+          lng: -48.81027477411886,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.590833875685423,
+          lng: -48.78380701386625,
+        },
+        // title: ,
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.604021896174906,
+          lng: -48.80621820838937,
+        },
+        // title: ,
+        draggable: true
+      },
     ]);
   }
 
