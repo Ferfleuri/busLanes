@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
+import { Geolocation } from '@capacitor/geolocation';
+
 
 @Component({
   selector: 'app-tab1',
@@ -22,6 +24,15 @@ export class Tab1Page {
 
   ngAfterViewInit() {
     this.createMap();
+  }
+
+  async getLocation() {
+    const coordinates = await Geolocation.getCurrentPosition();
+    const latitude = coordinates.coords.latitude;
+    const longitude = coordinates.coords.longitude;
+
+    console.log('Latitude:', latitude);
+    console.log('Longitude:', longitude);
   }
 
   async createMap() {

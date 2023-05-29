@@ -430,6 +430,27 @@ export class Tab3Page {
         },
         draggable: true
       },
+      {
+        coordinate: {
+          lat:-22.603931140026123,
+          lng:-48.80085720703503,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.610122039297156,
+          lng:-48.80212306920289,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:-22.60532298539124,
+          lng:-48.802348977369725,
+        },
+        draggable: true
+      },
     ]);
   }
 
