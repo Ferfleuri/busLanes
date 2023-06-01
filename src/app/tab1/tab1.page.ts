@@ -3,6 +3,13 @@ import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 
+const printCurrentPosition = async () => {
+  const coordinates = await Geolocation.getCurrentPosition();
+
+  console.log('Current position:', coordinates);
+};
+
+
 
 @Component({
   selector: 'app-tab1',
@@ -25,6 +32,11 @@ export class Tab1Page {
   ngAfterViewInit() {
     this.createMap();
   }
+
+  async locate() {
+    if(this.newMap) await this.newMap.enableCurrentLocation(true);
+  }
+
 
   async getLocation() {
     const coordinates = await Geolocation.getCurrentPosition();

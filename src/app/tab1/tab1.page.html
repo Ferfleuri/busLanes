@@ -14,4 +14,13 @@
 <ion-searchbar show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar>
 <capacitor-google-map #map></capacitor-google-map>
 <!-- this.getLocation(); -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-feature android:name="android.hardware.location.gps" />
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-button expand="block" (click)="locate()">Me localizar</ion-button>
+  </ion-toolbar>
+</ion-footer>
