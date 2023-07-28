@@ -1,4 +1,33 @@
 .fundo{
+width: 100%;
+height: 100%;
+background-image: url('../../assets/azul fundo.png');
+background-position: center;
+background-size: cover;
+background-repeat: no-repeats;
+}
+
+.grid {
+  height: 55%;
   width: 100%;
-  height: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 3rem;
+  ion-row {
+    width: 100%;
+    ion-button {
+      width: 100%;
+    }
+    ion-item {
+      width: 100%;
+      ion-note {
+        color: white;
+      }
+    }
+  }
+  * > {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
