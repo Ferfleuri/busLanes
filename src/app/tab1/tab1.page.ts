@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
+import { Router } from '@angular/router';
 
 const printCurrentPosition = async () => {
   const coordinates = await Geolocation.getCurrentPosition();
@@ -27,7 +28,11 @@ export class Tab1Page {
   markerId!: string;
 
 
-  constructor() { }
+  constructor(public route: Router) { }
+
+  navigateIcon() {
+    this.route.navigate(["/perfil"])
+  }
 
   ngAfterViewInit() {
     this.createMap();

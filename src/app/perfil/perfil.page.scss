@@ -6,3 +6,34 @@
   background-size: cover;
   background-repeat: no-repeats;
   }
+
+  .grid {
+    height: 85%;
+    width: 100%;
+    margin-left: 25%;
+    position: absolute;
+    bottom: 0;
+    ion-row {
+      width: 100%;
+      ion-item {
+        width: 100%;
+        ion-note {
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+    * > {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .tamanho{
+    height: 25%;
+    width: 50%;
+  }
+
+  .letra{
+    margin-left: 10%;
+  }
