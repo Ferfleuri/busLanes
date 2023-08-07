@@ -1,0 +1,22 @@
+*, body {
+  font-family: roboto;
+  font-size: 12pt;
+}
+#btnCARREGA {
+width: 100px;
+height: 43px;
+text-align: center;
+background-color: #4040af;
+color: white;
+border-radius: 5px;
+line-height: 36px;
+margin-bottom: 20px;
+}
+#txtResultado {
+width: 96%;
+padding: 10px;
+border: 1px solid red;
+border-radius: 10px;
+height: 80%;
+min-height: 300px;
+}
