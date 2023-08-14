@@ -456,6 +456,48 @@ export class Tab3Page {
         },
         draggable: true
       },
+      {
+        coordinate: {
+          lat: -22.614756570387566,
+          lng:-48.78375621609792,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.615611566413012,
+          lng:-48.78421629744576,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat:  -22.61050696711827,
+          lng:-48.80284459785568,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.580283435078197,
+          lng:-48.80831524858139,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.58428835288636,
+          lng:-48.81351816904853,
+        },
+        draggable: true
+      },
+      {
+        coordinate: {
+          lat: -22.58226962463717,
+          lng:-48.81525698697291,
+        },
+        draggable: true
+      },
     ]);
   }
 
