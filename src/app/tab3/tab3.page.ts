@@ -18,6 +18,15 @@ export class Tab3Page {
   };
   markerId!: string;
 
+  defaultMarkerInfo = {
+    iconSize: {
+      width: 40,
+      height: 40
+    },
+    draggable: false,
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png"
+  }
+
 
   constructor() {
   }
@@ -28,29 +37,29 @@ export class Tab3Page {
   }
 
   async locate() {
-    if(this.newMap) await this.newMap.enableCurrentLocation(true);
+    if (this.newMap) await this.newMap.enableCurrentLocation(true);
   }
 
   async createMap() {
-  try {
-    this.newMap = await GoogleMap.create({
-      id: 'capacitor-google-maps',
-      element: this.mapRef.nativeElement,
-      apiKey: environment.google_maps_api_Key,
-      config: {
-        center: this.center,
-        zoom: 13,
-      },
-    });
+    try {
+      this.newMap = await GoogleMap.create({
+        id: 'capacitor-google-maps',
+        element: this.mapRef.nativeElement,
+        apiKey: environment.google_maps_api_Key,
+        config: {
+          center: this.center,
+          zoom: 13,
+        },
+      });
 
-    await this.newMap.enableCurrentLocation(true);
+      await this.newMap.enableCurrentLocation(true);
 
-    this.addMarkers(this.center.lat, this.center.lng);
-    this.addListeners();
+      this.addMarkers(this.center.lat, this.center.lng);
+      this.addListeners();
 
-  } catch(e) {
-    console.log(e);
-  }
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   async addMarkers(lat: any, lng: any) {
@@ -62,453 +71,453 @@ export class Tab3Page {
           lat: lat,
           lng: lng,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.598846013100346,
           lng: -48.79267247677574,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.613496872282262,
           lng: -48.80050887787673,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.607793293529824,
           lng: -48.80561345997716,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.583447795650127,
           lng: -48.80798646884565,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.625587709246492,
           lng: -48.79120994065258,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.62588196721611,
           lng: -48.787840012935455,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.623929327569748,
           lng: -48.788373308590714,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.62220126860164,
           lng: -48.787527094534084,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.622426875802326,
           lng: -48.79251339457737,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.62099021775575,
           lng: -48.789357405540365,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.619388620892558,
           lng: -48.79112005233765,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.615009874333353,
           lng: -48.78927227521008,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.58801307299668,
           lng: -48.812518324544634,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.587744959229497,
           lng: -48.81400541616176,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.586239967723618,
           lng: -48.81539494739898,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.582764858264163,
           lng: -48.816676429341136,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.585120352945477,
+          lat: -22.585120352945477,
           lng: -48.8123110863175,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.585120352945477,
+          lat: -22.585120352945477,
           lng: -48.8123110863175,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.586694226841537,
+          lat: -22.586694226841537,
           lng: -48.81342946197062,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.584008501614456,
+          lat: -22.584008501614456,
           lng: -48.81552815437317,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.589174042633186,
+          lat: -22.589174042633186,
           lng: -48.807719392668155,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.5889950677061,
+          lat: -22.5889950677061,
           lng: -48.807456424158545,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.573474880501493,
-          lng:  -48.819039380307295,
+          lat: -22.573474880501493,
+          lng: -48.819039380307295,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.59076066810493,
-          lng:  -48.79740959975708,
+          lat: -22.59076066810493,
+          lng: -48.79740959975708,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.594924614833243,
-          lng:  -48.79896283149719,
+          lng: -48.79896283149719,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.573591571399124,
-          lng:  -48.81897167657231,
+          lng: -48.81897167657231,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.574856008811278,
+          lat: -22.574856008811278,
           lng: -48.8181151098313,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.576010501842266,
+          lat: -22.576010501842266,
           lng: -48.81701156432866,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.57590491488931,
+          lat: -22.57590491488931,
           lng: -48.816991996631195,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.57754902555634,
+          lat: -22.57754902555634,
           lng: -48.815296564593574,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.577247244694753,
-          lng:  -48.81551719418729,
+          lat: -22.577247244694753,
+          lng: -48.81551719418729,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.62421177533416,
+          lat: -22.62421177533416,
           lng: -48.79248765205062,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.623716809228725,
           lng: -48.79306817043952,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.607974453192707,
+          lat: -22.607974453192707,
           lng: -48.80484327087303,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.60512436507904,
+          lat: -22.60512436507904,
           lng: -48.80458349876632,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.603339907045154,
+          lat: -22.603339907045154,
           lng: -48.809336752842924,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.60566658443118,
+          lat: -22.60566658443118,
           lng: -48.81027477411886,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.590833875685423,
           lng: -48.78380701386625,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.604021896174906,
           lng: -48.80621820838937,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.599390866232643,
           lng: -48.78428589593086,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.598894022245155,
           lng: -48.78581641103319,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.600015131688327,
           lng: -48.78202985604387,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.59952995243331,
           lng: -48.781489446792904,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.599180872756047,
           lng: -48.7811157214681,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.60222274201286,
           lng: -48.78456930006808,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.601548036501924,
           lng: -48.78703730087054,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.597626606605857,
           lng: -48.782268255546434,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.601146037411944,
           lng: -48.78334766318692,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.60586531428776,
           lng: -48.78672742269929,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.613967123005935,
           lng: -48.79296494595997,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.612812491973774,
           lng: -48.791561551026135,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.604249883557735,
           lng: -48.79997668921793,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.603931140026123,
-          lng:-48.80085720703503,
+          lat: -22.603931140026123,
+          lng: -48.80085720703503,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.610122039297156,
-          lng:-48.80212306920289,
+          lat: -22.610122039297156,
+          lng: -48.80212306920289,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:-22.60532298539124,
-          lng:-48.802348977369725,
+          lat: -22.60532298539124,
+          lng: -48.802348977369725,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.613414363520892,
-          lng:-48.789790033855034,
+          lng: -48.789790033855034,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.614756570387566,
-          lng:-48.78375621609792,
+          lng: -48.78375621609792,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.615611566413012,
-          lng:-48.78421629744576,
+          lng: -48.78421629744576,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
-          lat:  -22.61050696711827,
-          lng:-48.80284459785568,
+          lat: -22.61050696711827,
+          lng: -48.80284459785568,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.580283435078197,
-          lng:-48.80831524858139,
+          lng: -48.80831524858139,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.58428835288636,
-          lng:-48.81351816904853,
+          lng: -48.81351816904853,
         },
-        draggable: true
+        ...this.defaultMarkerInfo
       },
       {
         coordinate: {
           lat: -22.58226962463717,
-          lng:-48.81525698697291,
+          lng: -48.81525698697291,
         },
-        draggable: true
+        ...this.defaultMarkerInfo,
       },
     ]);
   }
 
-  async addMarker(lat:any , lng:any) {
-    this.markerId = await this.newMap.addMarker ({
-      coordinate : {
+  async addMarker(lat: any, lng: any) {
+    this.markerId = await this.newMap.addMarker({
+      coordinate: {
         lat: lat,
         lng: lng,
       },
-      draggable: true
-    });
+      draggable: false
+    })
 
   }
 
@@ -519,12 +528,12 @@ export class Tab3Page {
   async addListeners() {
 
     await this.newMap.setOnMarkerClickListener((event) => {
-      console.log('setOnMarkerClickListener',event);
+      console.log('setOnMarkerClickListener', event);
       //this.removeMarker(event.markerId)
     });
 
     await this.newMap.setOnMapClickListener((event) => {
-      console.log('setOnMapClickListener',event);
+      console.log('setOnMapClickListener', event);
       this.addMarker(event.latitude, event.longitude);
     });
 
@@ -534,7 +543,7 @@ export class Tab3Page {
     });
 
     await this.newMap.setOnMyLocationClickListener((event) => {
-      console.log('setOnMyLocationClickListener',event);
+      console.log('setOnMyLocationClickListener', event);
       this.addMarker(event.latitude, event.longitude);
     });
 
