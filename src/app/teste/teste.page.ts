@@ -18,7 +18,7 @@ export class TestePage {
   async ObtemPosicao() {
     this.result = document.getElementById('txtResultado');
     let urlAPI = 'http://cliente.dfleet.com.br/data/posicao';
-    const mode : RequestMode = 'no-cors'
+    const mode: RequestMode = 'no-cors';
     const settings = {
       method: 'POST',
       mode: mode,
@@ -32,30 +32,20 @@ export class TestePage {
         "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
       },
-      body: JSON.stringify({
+      body: new URLSearchParams({
         CHAVE: 'C791E885F7C5F',
-        Placa: '',
-        DataMinima: '',
-        Metodo: 'localizacao'
+        placa: '',
+        dataminima: '',
+        metodo: 'localizacao'
       })
     };
 
-    const response = await fetch(urlAPI, settings);
-    console.log(response)
-    const data = await response.json();
-    console.log(data);
-    // tratamento dos dados
-    /*
-    var resultado = '';
-    for (var x = 0; x < Data.Data.length; x++) {
-      resultado = resultado + 'Rota: ' + Data.Data[x].FROTA + ' - Hora: ' +
-        Data.Data[x].DATAEVENTO.replace('T', ' ') +
-        ' LOCALIZAÇÃO: ' + Data.Data[x].ENDERECO + '<br />';
-    }
-    console.log(resultado);
-    this.result!.innerHTML = resultado;
-    alert('dados recebidos');
-*/
+    await fetch(urlAPI, settings).then((response) => {
+      console.log(response);
+      response.text().then(function (data) {
+        console.log(data);
+      });
+    });
 
   }
 
