@@ -40,12 +40,32 @@ export class TestePage {
       })
     };
 
-    await fetch(urlAPI, settings).then((response) => {
-      console.log(response);
-      response.text().then(function (data) {
-        console.log(data);
+    //var dados = await fetch(urlAPI, settings).then((response) => {
+    //  return response.text();
+    //  })
+    //  .then(function (result) {
+      //   return result;
+      // }).
+      // catch(err => {
+      //   alert('ocorreu um erro');
+      //   console.log('erro ocorrido', err);
+      // });
+
+      await fetch(urlAPI, settings).then((response) => {
+        console.log(response);
+        response.text().then(function (data) {
+          console.log(data);
+        });
       });
-    });
+
+     // console.log('dados retornados', dados);
+    // var resultado = '';
+     //   for (var x = 0; x < dados.Data.length; x++) {
+    //      resultado = resultado + 'Rota: ' + dados.Data[x].FROTA + ' - Hora: ' +
+     //       dados.Data[x].DATAEVENTO.replace('T', ' ') +
+     //       ' LOCALIZAÇÃO: ' + dados.Data[x].ENDERECO + '<BR />';
+      //  }
+      //  this.result!.innerHTML = resultado;
 
   }
 
