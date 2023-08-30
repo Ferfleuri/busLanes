@@ -40,33 +40,28 @@ export class TestePage {
       })
     };
 
-    //var dados = await fetch(urlAPI, settings).then((response) => {
-    //  return response.text();
-    //  })
-    //  .then(function (result) {
-      //   return result;
-      // }).
-      // catch(err => {
-      //   alert('ocorreu um erro');
-      //   console.log('erro ocorrido', err);
+    await fetch(urlAPI, settings).then((response) => {
+      console.log(response);
+      var data = this.pegaResultados(response);
+      console.log('fecth data final:', data);
+      // response.text().then(function (data) {
+      //   console.log(data);
       // });
+    });
 
-      await fetch(urlAPI, settings).then((response) => {
-        console.log(response);
-        response.text().then(function (data) {
-          console.log(data);
-        });
-      });
+  }
 
-     // console.log('dados retornados', dados);
-    // var resultado = '';
-     //   for (var x = 0; x < dados.Data.length; x++) {
-    //      resultado = resultado + 'Rota: ' + dados.Data[x].FROTA + ' - Hora: ' +
-     //       dados.Data[x].DATAEVENTO.replace('T', ' ') +
-     //       ' LOCALIZAÇÃO: ' + dados.Data[x].ENDERECO + '<BR />';
-      //  }
-      //  this.result!.innerHTML = resultado;
+  /**
+   *
+   * @param retorno Aguarda o Promisse dos dados recebidos e retorna a informação
+   * @returns
+   */
+  async pegaResultados(retorno: any) {
+    var dados = await retorno.then(function(e: any) {
 
+    });
+    console.log('dados retoranados', dados);
+    return dados;
   }
 
   async ObtemPosicao_ALUNOS() {

@@ -1,36 +1,48 @@
-<ion-header>  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-content class="grid">
+    <div class="seta">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
 
-<ion-content>
+    <div class="fundo">
+      <ion-avatar>
+        <img class="imagem" src="../../assets/modelo.jpg" />
+        <ion-fab>
+          <ion-fab-button>
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-avatar>
 
-  <div class="fundo">
-    <h1 class="back" routerLink="/tabs/tab1" ><ion-icon name="arrow-back-outline"></ion-icon></h1>
+      <ion-card
+        style="
+          padding: 1%;
+          padding-right: 5%;
+          margin: 3, 7%;
+          margin-top: 8%;
+          --background: #eaeff1;
+          border-radius: 20px;
+        "
+      >
+        <ion-list style="background-color: #eaeff1">
+          <ion-item style="--background: #eaeff1">
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-label style="margin-left: 5%"
+              >Augusto Fleuri Barbosa</ion-label
+            >
+          </ion-item>
 
-  </div>
+          <ion-item style="--background: #eaeff1">
+            <ion-icon name="mail-outline"></ion-icon>
+            <ion-label style="margin-left: 5%">augusto@gmail.com</ion-label>
+          </ion-item>
 
-  <ion-grid class="grid">
-
-
-    <h1 class="letra">Meu Perfil</h1>
-    <ion-avatar class="tamanho">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>
-
-    <br>
-    <br>
-    <br>
-
-<ion-col>
-  <div class="arrumado">
-    <ion-row><h1>Nome:</h1></ion-row>
-    <ion-row><h1>Email:</h1></ion-row>
-    <ion-row><h1>Telefone:</h1></ion-row>
-
-  </div>
-</ion-col>
-
-
-
-  </ion-grid>
-
-
+          <ion-item style="--background: #eaeff1">
+            <ion-icon name="call-outline"></ion-icon>
+            <ion-label style="margin-left: 5%">(00)00000-0000</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+  </ion-content>
 </ion-content>

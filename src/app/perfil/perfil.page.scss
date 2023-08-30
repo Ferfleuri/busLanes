@@ -1,54 +1,59 @@
-.fundo{
+.grid {
+  height: 100%;
+  width: 100%;
+  margin-left: 25%;
+  position: absolute;
+  bottom: 0;
+}
+
+.seta {
+  position: absolute;
+  top: 24px;
+  left: 24px;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/Fundo.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeats;
+
+  ion-icon {
+    font-size: 24px;
+    // color: white;
   }
+}
 
-  .grid {
-    height: 85%;
-    width: 100%;
-    margin-left: 25%;
-    position: absolute;
-    bottom: 0;
-    ion-row {
-      width: 100%;
-      ion-item {
-        width: 100%;
-        ion-note {
-          color: rgb(255, 255, 255);
-        }
-      }
-    }
-    * > {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+.ion-title {
+  text-align: center;
+  font-family: Serif;
+  background-color: #013440;
+}
 
-  .tamanho{
-    height: 25%;
-    width: 50%;
-  }
+.fundo {
+  background-image: url("../../assets/Fundo.png");
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding-top: 2%;
+}
 
-  .letra{
-    margin-left: 10%;
-  }
+ion-avatar {
+  height: 250px;
+  width: 60%;
+  margin-left: 25%;
+  margin-right: 20%;
+  margin-top: 19%;
+}
 
-  .back{
-    color: azure;
-    margin-top: 0%;
-    padding-top: 0%;
-    padding: 5%;
+ion-fab-button {
+  --background: #eaeff1;
+  --color: #013440;
+  margin-top: 165px;
+  position: absolute;
+  margin-left: -70px;
+}
 
-  }
-
-  .arrumado{
-    font-family: 'Courier New', Courier, monospace;
-    margin-right: 10%;
-  }
-
-
+.imagem {
+  height: 80%;
+  width: 80%;
+}
