@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <ion-content class="grid">
     <div class="seta">
-      <ion-icon name="arrow-back-outline"></ion-icon>
+      <ion-icon routerLink="/tabs/tab1" name="arrow-back-outline"></ion-icon>
     </div>
 
     <div class="fundo">
@@ -22,27 +22,34 @@
           margin-top: 8%;
           --background: #eaeff1;
           border-radius: 20px;
+          color: black;
         "
       >
-        <ion-list style="background-color: #eaeff1">
+      <div class="dados"> Dados:</div>
+
+        <ion-list style="background-color: #eaeff1" >
           <ion-item style="--background: #eaeff1">
-            <ion-icon name="person-outline"></ion-icon>
+            <ion-icon color="dark" name="person-outline"></ion-icon>
             <ion-label style="margin-left: 5%"
               >Augusto Fleuri Barbosa</ion-label
             >
           </ion-item>
 
           <ion-item style="--background: #eaeff1">
-            <ion-icon name="mail-outline"></ion-icon>
+            <ion-icon color="dark" name="mail-outline"></ion-icon>
             <ion-label style="margin-left: 5%">augusto@gmail.com</ion-label>
           </ion-item>
 
           <ion-item style="--background: #eaeff1">
-            <ion-icon name="call-outline"></ion-icon>
+            <ion-icon color="dark" name="call-outline"></ion-icon>
             <ion-label style="margin-left: 5%">(00)00000-0000</ion-label>
           </ion-item>
         </ion-list>
       </ion-card>
+      <button class="sign-out-button" >
+        <ion-icon routerLink="../entrada" class= "sair" name="arrow-back-circle-outline" ></ion-icon>
+        <span routerLink="../entrada">Sair do Aplicativo</span>
+      </button>
     </div>
   </ion-content>
 </ion-content>

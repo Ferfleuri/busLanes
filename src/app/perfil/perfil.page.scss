@@ -9,12 +9,13 @@
 .seta {
   position: absolute;
   top: 24px;
-  left: 24px;
+  left: 10px;
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeats;
+  color: #eaeff1;
 
   ion-icon {
     font-size: 24px;
@@ -34,7 +35,7 @@
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-top: 2%;
+  padding: 3%;
 }
 
 ion-avatar {
@@ -56,4 +57,39 @@ ion-fab-button {
 .imagem {
   height: 80%;
   width: 80%;
+}
+
+.sign-out-button {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 14px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+
+  .sair{
+    height: 32px;
+    width: 32px;
+    color: cornflowerblue;
+    margin-right: 0%;
+    margin-left: 0%;
+
+  }
+
+  span {
+    color: cornflowerblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+
+.dados{
+font-family:Georgia, 'Times New Roman', Times, serif;
+height: 0%;
+margin-left: 5%;
 }
