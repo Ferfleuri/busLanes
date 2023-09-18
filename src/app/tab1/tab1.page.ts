@@ -27,8 +27,8 @@ export class Tab1Page {
   };
   markerId!: string;
 
-
   constructor(public route: Router) { }
+
 
   navigateIcon() {
     this.route.navigate(["/perfil"])
@@ -37,6 +37,7 @@ export class Tab1Page {
   ngAfterViewInit() {
     this.createMap();
   }
+
 
   async locate() {
     if(this.newMap) await this.newMap.enableCurrentLocation(true);
@@ -71,5 +72,12 @@ export class Tab1Page {
       console.log(e);
     }
   }
+
+
+// export const environment = {
+ // production: false,
+ // googleMapsApiKey: 'SUA_CHAVE_DA_API_AQUI',
+// };
+
 
 }
