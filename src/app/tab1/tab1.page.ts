@@ -1,8 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, NgZone } from '@angular/core';
 import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
+
+declare var google: any;
 
 const printCurrentPosition = async () => {
   const coordinates = await Geolocation.getCurrentPosition();
@@ -19,16 +21,30 @@ const printCurrentPosition = async () => {
 })
 export class Tab1Page {
 
+  sourceLocation = '';
+  destinationLocation = '';
+
+
+  @ViewChild('startInput')
+  startInput!: ElementRef;
+  @ViewChild('endInput')
+  endInput!: ElementRef;
+
+
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
     lat: -22.5956355,
     lng: -48.8423376,
   };
+
   markerId!: string;
 
-  constructor(public route: Router) { }
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  ngZone: any;
 
+  constructor(public route: Router) { }
 
   navigateIcon() {
     this.route.navigate(["/perfil"])
@@ -36,7 +52,31 @@ export class Tab1Page {
 
   ngAfterViewInit() {
     this.createMap();
+    this.directionsRenderer.setMap(new google.maps.Map(document.getElementById('map'), {
+      zoom: 7,
+      center: { lat: 41.85, lng: -87.65 } // Ponto de partida padrão
+    }));
   }
+
+  calculateAndDisplayRoute() {
+    const start = (this.startInput.nativeElement as HTMLInputElement).value;
+    const end = (this.endInput.nativeElement as HTMLInputElement).value;
+
+    this.directionsService.route({
+      origin: start,
+      destination: end,
+      travelMode: google.maps.TravelMode.DRIVING
+    }, (response: any, status: string) => {
+      this.ngZone.run(() => {
+        if (status === 'OK') {
+          this.directionsRenderer.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+    });
+  }
+}
 
 
   async locate() {
@@ -80,4 +120,3 @@ export class Tab1Page {
 // };
 
 
-}
