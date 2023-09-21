@@ -49,7 +49,7 @@ export class Tab1Page {
       // O código que usa "google" aqui
       const map = new google.maps.Map(this.mapRef.nativeElement, {
         zoom: 7,
-        center: { lat: -22.6016421, lng: -48.8004461 }
+        center: { lat: -22.6070092, lng: -48.797338 }
       });
     } else {
       console.log('A biblioteca do Google Maps não está disponível.');

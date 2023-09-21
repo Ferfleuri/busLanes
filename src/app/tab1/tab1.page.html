@@ -33,9 +33,6 @@
     <ion-input [(ngModel)]="destinationLocation"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" type="submit" (click)="calculateAndDisplayRoute"
-    >Calcular Rota
-  </ion-button>
   <!--<ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
   <capacitor-google-map #map></capacitor-google-map>
   <!-- this.getLocation(); -->
@@ -46,6 +43,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="block" (click)="locate()">Me localizar</ion-button>
-  </ion-toolbar>
+  <ion-button expand="full" type="submit" (click)="calculateAndDisplayRoute"
+    >Calcular Rota
+  </ion-button>  </ion-toolbar>
 </ion-footer>
