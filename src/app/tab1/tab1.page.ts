@@ -3,15 +3,7 @@ import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
-
-declare var google: any;
-
-const printCurrentPosition = async () => {
-  const coordinates = await Geolocation.getCurrentPosition();
-
-  console.log('Current position:', coordinates);
-};
-
+import { map } from 'rxjs';
 
 
 @Component({
@@ -31,7 +23,7 @@ export class Tab1Page {
   endInput!: ElementRef;
 
 
-  @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
+  @ViewChild('map', { static: false }) mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
     lat: -22.5956355,
@@ -40,43 +32,35 @@ export class Tab1Page {
 
   markerId!: string;
 
-  directionsService = new google.maps.DirectionsService();
-  directionsRenderer = new google.maps.DirectionsRenderer();
-  ngZone: any;
 
-  constructor(public route: Router) { }
+  constructor(public route: Router) {
+  }
 
   navigateIcon() {
     this.route.navigate(["/perfil"])
   }
 
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  ngZone: any;
+
   ngAfterViewInit() {
-    this.createMap();
-    this.directionsRenderer.setMap(new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
-      center: { lat: 41.85, lng: -87.65 } // Ponto de partida padrão
-    }));
-  }
-
-  calculateAndDisplayRoute() {
-    const start = (this.startInput.nativeElement as HTMLInputElement).value;
-    const end = (this.endInput.nativeElement as HTMLInputElement).value;
-
-    this.directionsService.route({
-      origin: start,
-      destination: end,
-      travelMode: google.maps.TravelMode.DRIVING
-    }, (response: any, status: string) => {
-      this.ngZone.run(() => {
-        if (status === 'OK') {
-          this.directionsRenderer.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
+    if (typeof google !== 'undefined') {
+      // O código que usa "google" aqui
+      const map = new google.maps.Map(this.mapRef.nativeElement, {
+        zoom: 7,
+        center: { lat: -22.6016421, lng: -48.8004461 }
       });
-    });
+    } else {
+      console.log('A biblioteca do Google Maps não está disponível.');
+    }
+
+    // this.createMap();
+    // this.directionsRenderer.setMap(new google.maps.Map(map, {
+    //   zoom: 7,
+    //   center: { lat: -22.6016421, lng: -48.8004461 } // Ponto de partida padrão
+    // }));
   }
-}
 
 
   async locate() {
@@ -113,6 +97,31 @@ export class Tab1Page {
     }
   }
 
+  calculateAndDisplayRoute() {
+    const start = (this.startInput.nativeElement as HTMLInputElement).value;
+    const end = (this.endInput.nativeElement as HTMLInputElement).value;
+
+    this.directionsService.route({
+      origin: start,
+      destination: end,
+      travelMode: google.maps.TravelMode.DRIVING
+    }, (response: any, status: string) => {
+      this.ngZone.run(() => {
+        if (status === 'OK') {
+          this.directionsRenderer.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+    });
+  }
+
+  async printCurrentPosition() {
+    const coordinates = await Geolocation.getCurrentPosition();
+
+    console.log('Current position:', coordinates);
+  };
+}
 
 // export const environment = {
  // production: false,

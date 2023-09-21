@@ -1,60 +1,51 @@
-<script> src="https:/polyfill.io/v3.polyfill.min.js?freatures=default" </script>
-
-<script>
-  src="https:/googleapis.com/maps/api/js?key=AIzaSyAe8y7T8so2J-vGZyqGNUwMeo-jz31BFQc"
-</script>
-
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <div class="logo" >
+    <div class="logo">
       <img class="logo-img" src="../../assets/bus.svg" alt="" />
 
-      <ion-title class="title">
-       BusLanes
-      </ion-title>
+      <ion-title class="title"> BusLanes </ion-title>
 
-      <ion-icon (click)="navigateIcon()" class="icone" name="person-circle-outline"></ion-icon>
+      <ion-icon
+        (click)="navigateIcon()"
+        class="icone"
+        name="person-circle-outline"
+      ></ion-icon>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-label label="Floating label" labelPlacement="floating" placeholder="De"></ion-label>
+    <ion-label
+      label="Floating label"
+      labelPlacement="floating"
+      placeholder="De"
+    ></ion-label>
     <ion-input [(ngModel)]="sourceLocation"></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-label label="Floating label" labelPlacement="floating" placeholder="Para"></ion-label>
+    <ion-label
+      label="Floating label"
+      labelPlacement="floating"
+      placeholder="Para"
+    ></ion-label>
     <ion-input [(ngModel)]="destinationLocation"></ion-input>
   </ion-item>
-<!--<ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
-<capacitor-google-map #map></capacitor-google-map>
-<!-- this.getLocation(); -->
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-feature android:name="android.hardware.location.gps" />
+
+  <ion-button expand="full" type="submit" (click)="calculateAndDisplayRoute"
+    >Calcular Rota
+  </ion-button>
+  <!--<ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
+  <capacitor-google-map #map></capacitor-google-map>
+  <!-- this.getLocation(); -->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-feature android:name="android.hardware.location.gps" />
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-      <ion-button expand="block" (click)="locate()">Me localizar</ion-button>
+    <ion-button expand="block" (click)="locate()">Me localizar</ion-button>
   </ion-toolbar>
 </ion-footer>
-
-
-<!--
-  <ion-content>
-  <form (ngSubmit)="calculateAndDisplayRoute()">
-    <ion-item>
-      <ion-label position="floating">Origem</ion-label>
-      <ion-input #startInput required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Destino</ion-label>
-      <ion-input #endInput required></ion-input>
-    </ion-item>
-    <ion-button expand="full" type="submit">Calcular Rota</ion-button>
-  </form>
-  <div id="map" style="height: 400px;"></div>
-</ion-content>
--->
