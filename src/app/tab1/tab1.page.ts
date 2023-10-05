@@ -26,8 +26,8 @@ export class Tab1Page {
   @ViewChild('map', { static: false }) mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
-    lat: -22.5956355,
-    lng: -48.8423376,
+    lat: -22.624715868355583,
+    lng: -48.79210973635069
   };
 
   markerId!: string;
