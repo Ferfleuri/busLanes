@@ -17,85 +17,76 @@
 
 // }
 
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
-import { Geolocation, GeolocationOptions, Geoposition} from '@ionic-native/geolocation';
-import { GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent, MarkerOptions } from '@ionic-native/google-maps';
-import { Platform } from '@ionic/angular';
+
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { IonContent } from '@ionic/angular';
+
+declare var google: {
+  maps: {
+    MapTypeId: { ROADMAP: any; }; Map: new (arg0: any, arg1: { zoom: number; center: { lat: number; lng: number; }; mapTypeId: any; disableDefaultUI: boolean; }) => any; Marker: new (arg0: {
+      position: { lat: any; lng: any; }; map: any; icon: string; // ajuste este caminho para o seu ícone
+      animation: any;
+    }) => any; Animation: { DROP: any; };
+  };
+};
 
 @Component({
   selector: 'app-atuali',
-  templateUrl: 'atuali.page.html',
-  styleUrls: ['atuali.page.scss'],
+    templateUrl: './atuali.page.html',
+    styleUrls: ['./atuali.page.scss'],
 })
 export class AtualiPage {
-  @ViewChild('map', { static: false })
+  @ViewChild('map', { static: true })
   mapElement!: ElementRef;
-  private map!: GoogleMap;
-  private location: Geoposition | null = null;
+  @ViewChild(IonContent, { static: true })
+  content!: IonContent;
 
-  constructor(private platform: Platform, private geolocation: Geolocation, private ngZone: NgZone) {}
+  private map: any;
+  private location: any = null;
 
-  async ngOnInit() {
-    await this.platform.ready();
+  constructor(private geolocation: Geolocation) {}
+
+  ngOnInit() {
     this.loadMap();
+    this.requestLocationPermissions();
   }
 
   async loadMap() {
-    const options: GeolocationOptions = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
+    const mapOptions = {
+      zoom: 15,
+      center: { lat: 0, lng: 0 },
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
     };
 
-    try {
-      const geoposition: Geoposition = await this.geolocation.getCurrentPosition(options);
-      this.location = geoposition;
-      this.initMap(geoposition);
-    } catch (error) {
-      console.error('Error getting location', error);
-    }
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
-  initMap(geoposition: Geoposition) {
-    const mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: geoposition.coords.latitude,
-          lng: geoposition.coords.longitude,
-        },
-        zoom: 15,
-      },
-    };
-
-    this.map = GoogleMaps.create(this.mapElement.nativeElement, mapOptions);
-
-    this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
-      this.addMarker(geoposition);
-    });
-
+  async requestLocationPermissions() {
     this.geolocation
-      .watchPosition
-      .subscribe((position: any) => {
-        this.ngZone.run(() => {
-          this.location = position;
-          this.updateMarker(position);
-        });
+      .getCurrentPosition()
+      .then((position) => {
+        this.setLocation(position);
+      })
+      .catch((error) => {
+        console.error('Error getting location', error);
       });
   }
 
-  addMarker(geoposition: Geoposition) {
-    const markerOptions: MarkerOptions = {
-      position: {
-        lat: geoposition.coords.latitude,
-        lng: geoposition.coords.longitude,
-      },
-    };
+  setLocation(position: any) {
+    this.location = position;
+    this.map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude });
 
-    this.map.addMarker(markerOptions);
-  }
+    const marker = new google.maps.Marker({
+      position: { lat: position.coords.latitude, lng: position.coords.longitude },
+      map: this.map,
+      icon: '/src/assets/logo.png', // ajuste este caminho para o seu ícone
+      animation: google.maps.Animation.DROP,
+    });
 
-  updateMarker(geoposition: Geoposition) {
-    this.map.clear();
-    this.addMarker(geoposition);
+    this.content.scrollToTop();
   }
 }
+
+
