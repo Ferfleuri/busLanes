@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  google_maps_api_Key: 'AIzaSyAe8y7T8so2J-vGZyqGNUwMeo-jz31BFQc'
+  google_maps_api_Key: 'AIzaSyAe8y7T8so2J-vGZyqGNUwMeo-jz31BFQc',
+  base_url: 'http://localhost:8080'
 };
 
 /*
