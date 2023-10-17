@@ -59,8 +59,8 @@ export class Tab2Page implements OnInit {
     this.linha6horario2 = this.linha6.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
     this.linha6horario3 = this.linha6.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Jílio Ferrari")
     this.linha6horario4 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Monte Azul")
-    this.linha6horario5 = this.linha6.filter((e: any) => e.horarios.semana === "Domindo e Feriado - Terminal Urbano (centro)")
-    this.linha6horario6 = this.linha6.filter((e: any) => e.horarios.semana === "Domindo e Feriado - Domindo e Feriado - Júlio Ferrari")
+    this.linha6horario5 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Terminal Urbano (centro)")
+    this.linha6horario6 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Júlio Ferrari")
   })
 
 }
