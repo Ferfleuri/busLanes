@@ -15,23 +15,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label
-      label="Floating label"
-      labelPlacement="floating"
-      placeholder="De"
-    ></ion-label>
-    <ion-input [(ngModel)]="sourceLocation"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label
-      label="Floating label"
-      labelPlacement="floating"
-      placeholder="Para"
-    ></ion-label>
-    <ion-input [(ngModel)]="destinationLocation"></ion-input>
-  </ion-item>
+  <ion-searchbar color="light" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar>
 
   <!--<ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
   <capacitor-google-map #map></capacitor-google-map>
@@ -43,8 +27,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="full" type="submit" (click)="calculateAndDisplayRoute"
-      >Calcular Rota
-    </ion-button>
+      <ion-button expand="block" (click)="locate()">Me localizar</ion-button>
   </ion-toolbar>
 </ion-footer>

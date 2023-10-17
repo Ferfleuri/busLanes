@@ -49,7 +49,7 @@ export class Tab1Page {
       // O código que usa "google" aqui
       const map = new google.maps.Map(this.mapRef.nativeElement, {
         zoom: 7,
-        center: { lat: -22.6070092, lng: -48.797338 }
+        center: { lat: -22.624715868355583, lng: -48.79210973635069 }
       });
     } else {
       console.log('A biblioteca do Google Maps não está disponível.');
@@ -64,7 +64,7 @@ export class Tab1Page {
 
 
   async locate() {
-    if(this.newMap) await this.newMap.enableCurrentLocation(true);
+    if (this.newMap) await this.newMap.enableCurrentLocation(true);
   }
 
 
@@ -123,9 +123,5 @@ export class Tab1Page {
   };
 }
 
-// export const environment = {
- // production: false,
- // googleMapsApiKey: 'SUA_CHAVE_DA_API_AQUI',
-// };
 
 
