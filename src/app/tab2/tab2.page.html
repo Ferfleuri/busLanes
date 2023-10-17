@@ -321,6 +321,8 @@
   </ion-accordion-group>
   <ion-accordion-group>
 
+
+
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>Linha 8</ion-label>
@@ -329,10 +331,10 @@
         <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - Terminal Urbano(centro)</ion-label>
+            <ion-label>Segunda á Sábado - ETEC</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha7horario1">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario1">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -342,10 +344,76 @@
       <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
+            <ion-label>Segunda á Sábado - Terminal Urbano (centro)</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha1horario2">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario2">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Segunda á Sábado - Cecap</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario3">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Domingo e Feriado - ETEC</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario4">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Domingo e Feriado - Terminal Urbano (centro)</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario5">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Domingo e Feriado - Júlio Ferrari</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario6">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Segunda á Sábado - Fórum</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha8horario7">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -356,6 +424,9 @@
   </ion-accordion-group>
   <ion-accordion-group>
 
+
+
+
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>Linha 10</ion-label>
@@ -364,10 +435,10 @@
         <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - Terminal Urbano(centro)</ion-label>
+            <ion-label>Segunda á Sábado - Fórum</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha7horario1">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha10horario1">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -377,10 +448,10 @@
       <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
+            <ion-label>Segunda á Sábado - Terminal Urbano (centro)</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha1horario2">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha10horario2">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -399,23 +470,10 @@
         <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - Terminal Urbano(centro)</ion-label>
+            <ion-label>Segunda á Sábado - Terminal Urbano (centro)</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha7horario1">
-              <ion-label>{{horario.horarios.horarios}}</ion-label>
-            </ion-item>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-
-      <ion-accordion-group>
-        <ion-accordion value=" Thirteenth">
-          <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha1horario2">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha11horario1">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -434,10 +492,10 @@
         <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - ETEC</ion-label>
+            <ion-label>Segunda á Sábado - Terminal Urbano (centro)</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha7horario1">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha15horario1">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -447,10 +505,36 @@
       <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
+            <ion-label>Segunda á Sexta - Distrito Industrial</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha1horario2">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha15horario2">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Segunda á Sexta - Senai</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha15horario2">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Segunda á Sábado - ETEC</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha15horario2">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>
@@ -469,23 +553,10 @@
         <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - Terminal Urbano(centro)</ion-label>
+            <ion-label>Segunda á Sábado - ETEC</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha7horario1">
-              <ion-label>{{horario.horarios.horarios}}</ion-label>
-            </ion-item>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-
-      <ion-accordion-group>
-        <ion-accordion value=" Thirteenth">
-          <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-item slot="header" color="light" *ngFor="let horario of linha1horario2">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha19horario1">
               <ion-label>{{horario.horarios.horarios}}</ion-label>
             </ion-item>
           </div>

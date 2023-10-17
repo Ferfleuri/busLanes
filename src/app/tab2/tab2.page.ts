@@ -16,6 +16,11 @@ export class Tab2Page implements OnInit {
   linha5: any[] = [];
   linha6: any[] = [];
   linha7: any[] = [];
+  linha8: any[] = [];
+  linha10: any[] = [];
+  linha11: any[] = [];
+  linha15: any[] = [];
+  linha19: any[] = [];
   linha1horario1: any[] = [];
   linha1horario2: any[] = [];
   linha2horario1: any[] = [];
@@ -36,6 +41,24 @@ export class Tab2Page implements OnInit {
   linha7horario2: any[] = [];
   linha7horario3: any[] = [];
   linha7horario4: any[] = [];
+  linha8horario1: any[] = [];
+  linha8horario2: any[] = [];
+  linha8horario3: any[] = [];
+  linha8horario4: any[] = [];
+  linha8horario5: any[] = [];
+  linha8horario6: any[] = [];
+  linha8horario7: any[] = [];
+  linha10horario1: any[] = [];
+  linha10horario2: any[] = [];
+  linha11horario1: any[] = [];
+  linha15horario1: any[] = [];
+  linha15horario2: any[] = [];
+  linha15horario3: any[] = [];
+  linha15horario4: any[] = [];
+  linha19horario1: any[] = [];
+
+
+
 
   constructor(private linesService: LinesService ) { }
 
@@ -72,7 +95,42 @@ export class Tab2Page implements OnInit {
     this.linha7horario1 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
     this.linha7horario2 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
     this.linha7horario3 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Cacap")
-    this.linha7horario4 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+
+
+    this.linha8 = this.linhas.filter((e: any) => e.linhas === "Linha 8")
+    this.linha8horario1 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+    this.linha8horario2 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+    this.linha8horario3 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Cecap")
+    this.linha8horario4 = this.linha8.filter((e: any) => e.horarios.semana === "Domingo e Feriado - ETEC")
+    this.linha8horario5 = this.linha8.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Terminal Urbano (centro)")
+    this.linha8horario6 = this.linha8.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Júlio Ferrari")
+    this.linha8horario7 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Fórum")
+
+    this.linha10 = this.linhas.filter((e: any) => e.linhas === "Linha 10")
+    this.linha10horario1 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Fórum")
+    this.linha10horario1 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+
+    this.linha11 = this.linhas.filter((e: any) => e.linhas === "Linha 11")
+    this.linha11horario1 = this.linha11.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+
+    this.linha15 = this.linhas.filter((e: any) => e.linhas === "Linha 15")
+    this.linha15horario1 = this.linha15.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+    this.linha15horario2 = this.linha15.filter((e: any) => e.horarios.semana === "Segunda á Sexta - Distrito Industrial")
+    this.linha15horario3 = this.linha15.filter((e: any) => e.horarios.semana === "Segunda á Sexta - Senai")
+    this.linha15horario4 = this.linha15.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+
+    this.linha19 = this.linhas.filter((e: any) => e.linhas === "Linha 19")
+    this.linha19horario1 = this.linha19.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+
+
+
+
+
+
+
+
+
+
 
   })
 
