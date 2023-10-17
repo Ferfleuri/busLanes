@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +14,9 @@ export class LinesService {
 
   constructor(public http: HttpClient) { }
 
-  async getLines() {
-    const res = this.http.get(`${this.url}/linhas/todos`, this.httpHeader)
-    return res.subscribe(
-      res => res,
-    );
+    getLines() {
+    return this.http.get(`${this.url}/linhas/todos`, this.httpHeader)
+
   }
 
 }

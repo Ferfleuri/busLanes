@@ -9,13 +9,23 @@ import { LinesService } from '../../services/lines.service';
 
 export class Tab2Page implements OnInit {
 
-  linhas = [];
+  linhas: any[] = [];
+  linha1: any[] = [];
+  linha1horario1: any[] = [];
 
   constructor(private linesService: LinesService ) { }
 
   async ngOnInit() {
-  this.linesService.getLines('horarios').subscribe((res: any) => {this.linhas = (res.content); console.log(this.linhas)})
-  }
+  this.linesService.getLines().subscribe((res: any) => {
+    this.linhas = (res);
+    console.log(this.linhas)
+
+    this.linha1 = this.linhas.filter((e: any) => e.linhas === "Linha 1")
+    this.linha1horario1 = this.linha1.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano(centro)")
+  })
+
+}
+
 
 
 }
