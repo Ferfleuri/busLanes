@@ -48,7 +48,7 @@ export class Tab1Page {
     if (typeof google !== 'undefined') {
       // O código que usa "google" aqui
       const map = new google.maps.Map(this.mapRef.nativeElement, {
-        zoom: 7,
+        zoom: 13,
         center: { lat: -22.624715868355583, lng: -48.79210973635069 }
       });
     } else {

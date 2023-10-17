@@ -17,9 +17,9 @@ export class LinesService {
   constructor(public http: HttpClient) { }
 
   async getLines() {
-    const response = this.http.get(`${this.url}/linhas/todos`, this.httpHeader)
-    return response.subscribe(
-      response => response,
+    const res = this.http.get(`${this.url}/linhas/todos`, this.httpHeader)
+    return res.subscribe(
+      res => res,
     );
   }
 
