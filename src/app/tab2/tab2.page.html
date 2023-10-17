@@ -137,7 +137,7 @@
       <ion-accordion-group>
         <ion-accordion value=" Thirteenth">
           <ion-item slot="header" color="light">
-            <ion-label>Segunda á Sábado - São Judas Tadeu</ion-label>
+            <ion-label>Segunda á Sábado - Terminal Urbano (centro)</ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
             <ion-item slot="header" color="light" *ngFor="let horario of linha5horario2">
@@ -146,6 +146,20 @@
           </div>
         </ion-accordion>
       </ion-accordion-group>
+
+      <ion-accordion-group>
+        <ion-accordion value=" Thirteenth">
+          <ion-item slot="header" color="light">
+            <ion-label>Segunda á Sábado - ETEC</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-item slot="header" color="light" *ngFor="let horario of linha5horario3">
+              <ion-label>{{horario.horarios.horarios}}</ion-label>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
       </div>
     </ion-accordion>
   </ion-accordion-group>

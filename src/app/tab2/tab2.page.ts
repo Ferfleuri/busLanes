@@ -22,6 +22,7 @@ export class Tab2Page implements OnInit {
   linha2horario4: any[] = [];
   linha5horario1: any[] = [];
   linha5horario2: any[] = [];
+  linha5horario3: any[] = [];
 
   constructor(private linesService: LinesService ) { }
 
@@ -42,7 +43,8 @@ export class Tab2Page implements OnInit {
 
     this.linha5 = this.linhas.filter((e: any) => e.linhas === "Linha 5")
     this.linha5horario1 = this.linha5.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
-    this.linha5horario2 = this.linha5.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+    this.linha5horario2 = this.linha5.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+    this.linha5horario3 = this.linha5.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
   })
 
 }
