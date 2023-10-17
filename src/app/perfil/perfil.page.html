@@ -4,9 +4,10 @@
       <ion-icon routerLink="/tabs/tab1" name="arrow-back-outline"></ion-icon>
     </div>
 
-    <div class="fundo">
+    <div class="fundo" *ngFor="let user of users">
       <ion-avatar>
-        <img class="imagem" src="../../assets/modelo.jpg" />
+        <!-- <img class="imagem" src="../../assets/modelo.jpg" /> -->
+        <img class="imagem" [src]="user.img" />
         <ion-fab>
           <ion-fab-button>
             <ion-icon name="camera"></ion-icon>
@@ -31,18 +32,18 @@
           <ion-item style="--background: #eaeff1">
             <ion-icon color="dark" name="person-outline"></ion-icon>
             <ion-label style="margin-left: 5%"
-              >Augusto Fleuri de Souza</ion-label
+              >{{user.nomeusuario}}</ion-label
             >
           </ion-item>
 
           <ion-item style="--background: #eaeff1">
             <ion-icon color="dark" name="mail-outline"></ion-icon>
-            <ion-label style="margin-left: 5%">augusto@gmail.com</ion-label>
+            <ion-label style="margin-left: 5%">{{user.email}}</ion-label>
           </ion-item>
 
           <ion-item style="--background: #eaeff1">
             <ion-icon color="dark" name="call-outline"></ion-icon>
-            <ion-label style="margin-left: 5%">(00)00000-0000</ion-label>
+            <ion-label style="margin-left: 5%">{{user.telefone}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-card>

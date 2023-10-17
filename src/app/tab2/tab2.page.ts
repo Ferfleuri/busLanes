@@ -15,6 +15,7 @@ export class Tab2Page implements OnInit {
   linha2: any[]= [];
   linha5: any[] = [];
   linha6: any[] = [];
+  linha7: any[] = [];
   linha1horario1: any[] = [];
   linha1horario2: any[] = [];
   linha2horario1: any[] = [];
@@ -30,7 +31,10 @@ export class Tab2Page implements OnInit {
   linha6horario4: any[] = [];
   linha6horario5: any[] = [];
   linha6horario6: any[] = [];
+  linha6horario7: any[] = [];
   linha7horario1: any[] = [];
+  linha7horario2: any[] = [];
+  linha7horario3: any[] = [];
 
   constructor(private linesService: LinesService ) { }
 
@@ -61,6 +65,13 @@ export class Tab2Page implements OnInit {
     this.linha6horario4 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Monte Azul")
     this.linha6horario5 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Terminal Urbano (centro)")
     this.linha6horario6 = this.linha6.filter((e: any) => e.horarios.semana === "Domingo e Feriado - Júlio Ferrari")
+    this.linha6horario7 = this.linha6.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+
+    this.linha7 = this.linhas.filter((e: any) => e.linhas === "Linha 7")
+    this.linha7horario1 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - ETEC")
+    this.linha7horario2 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+    this.linha7horario3 = this.linha7.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Cacap")
+
   })
 
 }
