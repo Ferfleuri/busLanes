@@ -108,7 +108,7 @@ export class Tab2Page implements OnInit {
 
     this.linha10 = this.linhas.filter((e: any) => e.linhas === "Linha 10")
     this.linha10horario1 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Fórum")
-    this.linha10horario1 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
+    this.linha10horario2 = this.linha8.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
 
     this.linha11 = this.linhas.filter((e: any) => e.linhas === "Linha 11")
     this.linha11horario1 = this.linha11.filter((e: any) => e.horarios.semana === "Segunda á Sábado - Terminal Urbano (centro)")
