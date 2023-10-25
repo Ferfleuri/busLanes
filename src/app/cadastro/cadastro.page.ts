@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 export class CadastroPage {
 
-  constructor() {
+  constructor() {}
 
-   }
 
 }
 

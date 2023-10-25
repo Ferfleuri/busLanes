@@ -22,5 +22,9 @@ export class LinesService {
     return this.http.get(`${this.url}/usuarios/todos`, this.httpHeader)
   }
 
+  getPontos() {
+    return this.http.get(`${this.url}/pontos/todos`, this.httpHeader)
+  }
+
 
 }
