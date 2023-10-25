@@ -5,6 +5,7 @@ import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 
+declare var google: any ;
 
 @Component({
   selector: 'app-tab1',
@@ -31,9 +32,12 @@ export class Tab1Page {
   };
 
   markerId!: string;
+  public search: string = '';
+  private googleAutocomplete = new google.maps.places.AutocompleteService();
 
 
   constructor(public route: Router) {
+    console.log(google);
   }
 
   navigateIcon() {
@@ -121,6 +125,10 @@ export class Tab1Page {
 
     console.log('Current position:', coordinates);
   };
+
+  searchChanged() {
+    console.log(this.search);
+  }
 }
 
 
