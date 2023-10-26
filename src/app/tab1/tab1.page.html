@@ -16,13 +16,15 @@
 
 <ion-content [fullscreen]="true">
   <ion-searchbar color="light" show-clear-button="always"  placeholder="Pesquise sua linha"></ion-searchbar>
-<!-- <ion-list class="ion-margin-horizontal" [hidden]="!search.lenght">
+
+  <!-- <ion-list class="ion-margin-horizontal" [hidden]="!search.lenght">
   <ion-item (click)="calcRuoute(result)" *ngFor="let result of searchResults">
 {{result.description}}
 [(ngModel)]="search" (ionChange)="searchChanged()"
-  </ion-item>
-</ion-list> -->
-  <!--<ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
+  </ion-item> -->
+<!-- </ion-list> -->
+
+  <!-- <ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
   <capacitor-google-map #map></capacitor-google-map>
   <!-- this.getLocation(); -->
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

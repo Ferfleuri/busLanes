@@ -35,10 +35,11 @@ export class Tab1Page {
   public search: string = '';
   private googleAutocomplete: any = new google.maps.places.AutocompleteService();
   public searchResults = new Array<any>();
-  route: any;
 
-  constructor(  private ngZone: NgZone)
-   {}
+  constructor(private route: Router){
+
+  }
+
 
   navigateIcon() {
     this.route.navigate(["/perfil"])
@@ -46,6 +47,7 @@ export class Tab1Page {
 
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer();
+  ngZone: any;
 
   ngAfterViewInit() {
     if (typeof google !== 'undefined') {
@@ -58,11 +60,6 @@ export class Tab1Page {
       console.log('A biblioteca do Google Maps não está disponível.');
     }
 
-    // this.createMap();
-    // this.directionsRenderer.setMap(new google.maps.Map(map, {
-    //   zoom: 7,
-    //   center: { lat: -22.6016421, lng: -48.8004461 } // Ponto de partida padrão
-    // }));
   }
 
 
@@ -125,6 +122,7 @@ export class Tab1Page {
     console.log('Current position:', coordinates);
   };
 
+
   // searchChanged() {
   //   if (!this.search.trim().length)
   //   return;
@@ -144,6 +142,3 @@ export class Tab1Page {
   // }
 
 }
-
-
-
