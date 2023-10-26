@@ -33,12 +33,12 @@ export class Tab1Page {
 
   markerId!: string;
   public search: string = '';
-  private googleAutocomplete = new google.maps.places.AutocompleteService();
+  private googleAutocomplete: any = new google.maps.places.AutocompleteService();
+  public searchResults = new Array<any>();
+  route: any;
 
-
-  constructor(public route: Router) {
-    console.log(google);
-  }
+  constructor(  private ngZone: NgZone)
+   {}
 
   navigateIcon() {
     this.route.navigate(["/perfil"])
@@ -46,7 +46,6 @@ export class Tab1Page {
 
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer();
-  ngZone: any;
 
   ngAfterViewInit() {
     if (typeof google !== 'undefined') {
@@ -126,9 +125,24 @@ export class Tab1Page {
     console.log('Current position:', coordinates);
   };
 
-  searchChanged() {
-    console.log(this.search);
-  }
+  // searchChanged() {
+  //   if (!this.search.trim().length)
+  //   return;
+
+  //   this.googleAutocomplete.getPlacePredictions({ input: this.search}, predictions => {
+  //     this.ngZone.run(() => {
+  //       this.searchResults = predictions;
+  //      });
+
+  //   });
+  // }
+
+
+  // calcRuoute(item: any){
+  //   this.search= '';
+  //   console.log(item);
+  // }
+
 }
 
 
