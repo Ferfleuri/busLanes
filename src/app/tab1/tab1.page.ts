@@ -3,9 +3,10 @@ import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
+import { GoogleMaps } from '@ionic-native/google-maps';
 import { map } from 'rxjs';
 
-declare var google: any ;
+declare var google: any;
 
 @Component({
   selector: 'app-tab1',
@@ -36,13 +37,29 @@ export class Tab1Page {
   private googleAutocomplete: any = new google.maps.places.AutocompleteService();
   public searchResults = new Array<any>();
 
-  constructor(private route: Router){
+  constructor(private route2: Router) {
+
+    map.on('mapReady', () => {
+      // Obter as direções
+      const directions = await map.getDirections({
+        origin: { lat: -22.56933675464782, lng: -48.824336528778076 },
+        destination: { lat: -22.62588196721611, lng: 48.787840012935455 },
+      });
+
+      // Desenhar a rota no mapa
+      const polyline = await map.addPolyline({
+        path: directions.routes[0].legs[0].steps.map((step) => step.polyline.points),
+        strokeColor: '#0000FF',
+        strokeOpacity: 0.8,
+        strokeWeight: 5,
+      });
+    });
 
   }
 
 
   navigateIcon() {
-    this.route.navigate(["/perfil"])
+    this.route2.navigate(["/perfil"])
   }
 
   directionsService = new google.maps.DirectionsService();
