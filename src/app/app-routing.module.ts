@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'atuali',
     loadChildren: () => import('./atuali/atuali.module').then( m => m.AtualiPageModule)
   },
+  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  },
 
 
 
