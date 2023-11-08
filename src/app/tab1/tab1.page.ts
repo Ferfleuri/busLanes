@@ -39,22 +39,6 @@ export class Tab1Page {
 
   constructor(private route2: Router) {
 
-    // map.on('mapReady', () => {
-    //   // Obter as direções
-    //   const directions = await map.getDirections({
-    //     origin: { lat: -22.56933675464782, lng: -48.824336528778076 },
-    //     destination: { lat: -22.62588196721611, lng: 48.787840012935455 },
-    //   });
-
-    //   // Desenhar a rota no mapa
-    //   const polyline = await map.addPolyline({
-    //     path: directions.routes[0].legs[0].steps.map((step) => step.polyline.points),
-    //     strokeColor: '#0000FF',
-    //     strokeOpacity: 0.8,
-    //     strokeWeight: 5,
-    //   });
-    // });
-
   }
 
 
