@@ -3,7 +3,7 @@ import { GoogleMap, MapType, Marker } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
-import { GoogleMaps, GoogleMapsAnimation, MyLocation } from '@ionic-native/google-maps';
+import { Geocoder, GoogleMaps, GoogleMapsAnimation, MyLocation } from '@ionic-native/google-maps';
 import { map } from 'rxjs';
 
 declare var google: any;
@@ -135,7 +135,7 @@ export class Tab1Page {
         zoom: 18
       });
 
-      this.map.addMarkerSync({
+      this.originMarker = this.map.addMarkerSync({
         title: 'Origem',
         icon: '#000',
         animation: GoogleMapsAnimation.DROP,
@@ -162,10 +162,23 @@ export class Tab1Page {
   }
 
 
-  calcRuoute(item: any){
+  async calcRuoute(item: any){
     this.search= '';
-    console.log(item);
+    this.destination = item ;
 
+    const info: any = await Geocoder.geocode({address: this.destination.description});
 
+    let markerDestination: Marker = this.map.addMarkerSync({
+      title: this.destination.description,
+      icon: '#000',
+      animation: GoogleMapsAnimation.DROP,
+      position: info[0].position
+    });
+
+    this.map.addPolyline({
+      points: [],
+      color: '#000',
+      width: 3
+    })
 }
 }
