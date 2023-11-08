@@ -22,6 +22,7 @@
  <ion-list class="ion-margin-horizontal" [hidden]="!search.length">
   <ion-item (click)="calcRuoute(result)" *ngFor="let result of searchResults">
 {{result.description}}
+
   </ion-item>
  </ion-list>
 

@@ -1,9 +1,9 @@
 import { Component, ElementRef, ViewChild, NgZone } from '@angular/core';
-import { GoogleMap, MapType } from '@capacitor/google-maps';
+import { GoogleMap, MapType, Marker } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
-import { GoogleMaps } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMapsAnimation, MyLocation } from '@ionic-native/google-maps';
 import { map } from 'rxjs';
 
 declare var google: any;
@@ -17,7 +17,8 @@ export class Tab1Page {
 
   sourceLocation = '';
   destinationLocation = '';
-
+  private originMarker?: Marker;
+  public destination: any ;
 
   @ViewChild('startInput')
   startInput!: ElementRef;
@@ -36,6 +37,8 @@ export class Tab1Page {
   public search: string = '';
   private googleAutocomplete: any = new google.maps.places.AutocompleteService();
   public searchResults = new Array<any>();
+  map: any;
+  loading: any;
 
   constructor(private route2: Router) {
 
@@ -122,6 +125,28 @@ export class Tab1Page {
 
     console.log('Current position:', coordinates);
   };
+
+  async addOriginMarker() {
+    try{
+      const myLocation: MyLocation = await this.map.getMyLocation();
+
+      await this.map.moveCamera({
+        target: myLocation.latLng,
+        zoom: 18
+      });
+
+      this.map.addMarkerSync({
+        title: 'Origem',
+        icon: '#000',
+        animation: GoogleMapsAnimation.DROP,
+        position: myLocation.latLng
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.loading.dismiss();
+    }
+  }
 
 
   searchChanged() {
