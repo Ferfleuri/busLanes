@@ -124,22 +124,23 @@ export class Tab1Page {
   };
 
 
-  // searchChanged() {
-  //   if (!this.search.trim().length)
-  //   return;
+  searchChanged() {
+    if (!this.search.trim().length)
+    return;
 
-  //   this.googleAutocomplete.getPlacePredictions({ input: this.search}, predictions => {
-  //     this.ngZone.run(() => {
-  //       this.searchResults = predictions;
-  //      });
-
-  //   });
-  // }
+    this.googleAutocomplete.getPlacePredictions({ input: this.search}, (predictions: any[]) => {
+      this.searchResults = predictions;
 
 
-  // calcRuoute(item: any){
-  //   this.search= '';
-  //   console.log(item);
-  // }
 
+    });
+  }
+
+
+  calcRuoute(item: any){
+    this.search= '';
+    console.log(item);
+
+
+}
 }
