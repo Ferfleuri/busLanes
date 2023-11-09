@@ -3,7 +3,8 @@ import { GoogleMap, MapType, Marker } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
-import { Geocoder, GoogleMaps, GoogleMapsAnimation, MyLocation } from '@ionic-native/google-maps';
+import { Geocoder } from '@ionic-native/google-maps/ngx';
+import { GoogleMaps, GoogleMapsAnimation, MyLocation } from '@ionic-native/google-maps';
 import { map } from 'rxjs';
 
 declare var google: any;
@@ -39,10 +40,13 @@ export class Tab1Page {
   public searchResults = new Array<any>();
   map: any;
   loading: any;
+  google: any;
 
   constructor(private route2: Router) {
 
   }
+
+
 
 
   navigateIcon() {
@@ -161,9 +165,10 @@ export class Tab1Page {
     });
   }
 
-  async calcRuoute(item: any){
+  async calcRoute(item: any){
     this.search= '';
     this.destination = item ;
+
 
     const info: any = await Geocoder.geocode({address: this.destination.description});
 
@@ -175,7 +180,7 @@ export class Tab1Page {
     });
 
     this.map.addPolyline({
-      points: [this.originMarker?.getPosition(), markerDestination.getPosition()],
+      points: [],
       color: '#000',
       width: 3
     })

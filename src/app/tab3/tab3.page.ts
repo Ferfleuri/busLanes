@@ -306,8 +306,8 @@ export class Tab3Page {
       },
       {
         coordinate: {
-          lat: -22.607974453192707,
-          lng: -48.80484327087303,
+          lat: -22.597478381642308,
+          lng: -48.80717263746198,
         },
         ...this.defaultMarkerInfo
       },
@@ -504,6 +504,83 @@ export class Tab3Page {
         coordinate: {
           lat: -22.58226962463717,
           lng: -48.81525698697291,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.612302901328114,
+          lng: -48.79274682345534,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.602192664461484,
+          lng: -48.796292939733874,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.614117200357757,
+          lng: -48.796380806556336,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.6002909271742,
+          lng: -48.80139986569823,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.601729412655992,
+          lng: -48.8067626953125,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.608380658115678,
+          lng: -48.79138429147949,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.599141948163343,
+          lng: -48.80431810910643,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.608380658115678,
+          lng: -48.79138429147949,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.610760436595502,
+          lng: -48.79616062083214,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.605017782445824,
+          lng: -48.78895282745361,
+        },
+        ...this.defaultMarkerInfo,
+      },
+      {
+        coordinate: {
+          lat: -22.59182420967758,
+          lng: -48.80302906036377,
         },
         ...this.defaultMarkerInfo,
       },
