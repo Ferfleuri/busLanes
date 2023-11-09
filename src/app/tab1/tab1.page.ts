@@ -161,7 +161,6 @@ export class Tab1Page {
     });
   }
 
-
   async calcRuoute(item: any){
     this.search= '';
     this.destination = item ;
@@ -176,7 +175,7 @@ export class Tab1Page {
     });
 
     this.map.addPolyline({
-      points: [],
+      points: [this.originMarker?.getPosition(), markerDestination.getPosition()],
       color: '#000',
       width: 3
     })
