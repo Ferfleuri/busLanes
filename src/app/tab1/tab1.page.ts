@@ -165,12 +165,27 @@ export class Tab1Page {
     });
   }
 
+  // geoCode(adress: any) {
+  //   let latlng = {lat: '', lng: ''};
+  //   return new Promise((resolve, reject) => {
+  //     let geocoder = new google.maps.Geocoder();
+  //     geocoder.geocode ({'adress': adress}, (results:any) => {
+  //       console.log('results: ', results);
+  //       latlng.lat = results[0].geometry.location.lat();
+  //       latlng.lng = results[0].geometry.location.lng();
+  //       resolve(latlng);
+  //     });
+  //   });
+  // }
+
   async calcRoute(item: any){
     this.search= '';
     this.destination = item ;
 
-
+    let geocoder = new google.maps.Geocoder();
     const info: any = await Geocoder.geocode({address: this.destination.description});
+
+
 
     let markerDestination: Marker = this.map.addMarkerSync({
       title: this.destination.description,
