@@ -142,28 +142,26 @@ export class Tab1Page{
     });
   }
 
-  // geoCode(adress: any) {
-  //   let latlng = {lat: '', lng: ''};
-  //   return new Promise((resolve, reject) => {
-  //     let geocoder = new google.maps.Geocoder();
-  //     geocoder.geocode ({'adress': adress}, (results:any) => {
-  //       console.log('results: ', results);
-  //       latlng.lat = results[0].geometry.location.lat();
-  //       latlng.lng = results[0].geometry.location.lng();
-  //       resolve(latlng);
-  //     });
-  //   });
-  // }
 
   async criarLinha() {
     const polyline: Polyline[] = [
      {
       path: [
+        {lat: -22.602027, lng: -48.812962},
+        {lat: -22.606719, lng: -48.798517},
+        {lat: -22.607462, lng: -48.798305},
         {lat: -22.612898, lng: -48.800939},
-        {lat: -22.617365, lng: -48.797785},
-        {lat: -22.614468, lng: -48.789003}
+        {lat: -22.617700, lng: -48.797683},
+        {lat: -22.622756, lng: -48.793404},
+        {lat: -22.614468, lng: -48.789003},
+        {lat: -22.606075, lng: -48.784422},
+        {lat: -22.605893, lng: -48.783769},
+        {lat: -22.605318, lng: -48.783557},
+        {lat: -22.603469, lng: -48.781402},
+        {lat: -22.603119, lng: -48.781812},
+        {lat: -22.601060, lng: -48.779399}
       ],
-      strokeColor: "#FF0000",
+      strokeColor: "#1E90FF",
       strokeWeight: 5,
       geodesic: true,
      }
