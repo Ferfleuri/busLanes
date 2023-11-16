@@ -10,21 +10,14 @@
         class="icone"
         name="person-circle-outline"
       ></ion-icon>
+      <ion-button (click)="criarLinha()">
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-searchbar  [(ngModel)]="search" (ionChange)="searchChanged()" color="light" show-clear-button="always"  placeholder="Pesquise sua linha"></ion-searchbar>
-
-
-
- <ion-list class="ion-margin-horizontal" [hidden]="!search.length">
-  <ion-item (click)="calcRoute(result)" *ngFor="let result of searchResults">
-{{result.description}}
-
-  </ion-item>
- </ion-list>
 
   <!-- <ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
   <capacitor-google-map #map></capacitor-google-map>

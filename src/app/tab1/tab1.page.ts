@@ -1,12 +1,12 @@
 import { Component, ElementRef, ViewChild, NgZone, OnInit } from '@angular/core';
-import {  MapType, Marker } from '@capacitor/google-maps';
+import {  MapType, Marker, GoogleMap, Polyline } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Route, Router } from '@angular/router';
 import { Geocoder } from '@ionic-native/google-maps/ngx';
-import { Environment, GoogleMapOptions, GoogleMaps, GoogleMapsAnimation, GoogleMapsEvent, ILatLng, MyLocation, GoogleMap } from '@ionic-native/google-maps';
 import { map } from 'rxjs';
 import { LoadingController, Platform } from '@ionic/angular';
+import { PolylineOptions } from '@ionic-native/google-maps';
 
 declare var google: any;
 
@@ -15,7 +15,7 @@ declare var google: any;
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page{
 
   sourceLocation = '';
   destinationLocation = '';
@@ -28,8 +28,9 @@ export class Tab1Page implements OnInit {
   endInput!: ElementRef;
 
 
-  @ViewChild('map') mapElement: any;
-  newMap!: GoogleMap;
+  @ViewChild('map')
+  private mapRef!: ElementRef<HTMLElement>;
+  private newMap!: GoogleMap;
   center: any = {
     lat: -22.624715868355583,
     lng: -48.79210973635069
@@ -39,8 +40,8 @@ export class Tab1Page implements OnInit {
   public search: string = '';
   private googleAutocomplete: any = new google.maps.places.AutocompleteService();
   public searchResults = new Array<any>();
-  private map: GoogleMap ;
   loading: any;
+  private polyLineId: any;
 
   constructor(
     private plataform: Platform,
@@ -49,58 +50,6 @@ export class Tab1Page implements OnInit {
     private route2: Router,
   )
    {}
-
-   ngOnInit() {
-     this.mapElement = this.mapElement.nativeElement;
-     this.mapElement.style.width = this.plataform.width;
-     this.mapElement.style.height = this.plataform.height;
-
-     this.loadMap()
-   }
-
-   loadMap() {
-     this.loading = this.loadinCtrl.create({message: "Por favor, aguarde"})
-     this.loading.present();
-
-     Environment.setEnv({
-       'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyAe8y7T8so2J-vGZyqGNUwMeo-jz31BFQc',
-       'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyAe8y7T8so2J-vGZyqGNUwMeo-jz31BFQc'
-     });
-
-     const mapOptions: GoogleMapOptions = {
-       controls: {
-         zoom: false
-       }
-     }
-
-     this.map = GoogleMaps.create(this.mapElement, mapOptions)
-
-     try {
-       this.map.one(GoogleMapsEvent.MAP_READY);
-       this.addOriginMarker();
-     } catch(error) {
-       console.log(error)
-     }
-
-       this.addOriginMarker() {
-        try{
-          const myLocation: MyLocation = this.map.getMyLocation();
-
-          this.map.moveCamera({
-            target: myLocation.latLng,
-            zoom: 18
-          });
-
-          this.map.addMarkerSync({
-            title: 'origin'
-          })
-        }catch(error){
-          console.log(error)
-        } finally {
-          this.loading.dismiss();
-        }
-      }
-   }
 
 
 
@@ -114,15 +63,14 @@ export class Tab1Page implements OnInit {
 
   ngAfterViewInit() {
     if (typeof google !== 'undefined') {
-      // O código que usa "google" aqui
       const map = new google.maps.Map(this.mapRef.nativeElement, {
         zoom: 13,
         center: { lat: -22.624715868355583, lng: -48.79210973635069 }
       });
+      this.createMap(); // Adicione esta linha para inicializar o mapa
     } else {
       console.log('A biblioteca do Google Maps não está disponível.');
     }
-
   }
 
 
@@ -151,10 +99,8 @@ export class Tab1Page implements OnInit {
           zoom: 13,
         },
       });
-
       await this.newMap.enableTrafficLayer(true);
       await this.newMap.enableCurrentLocation(true);
-
     } catch (e) {
       console.log(e);
     }
@@ -185,27 +131,6 @@ export class Tab1Page implements OnInit {
     console.log('Current position:', coordinates);
   };
 
-  async addOriginMarker() {
-    try{
-      const myLocation: MyLocation = await this.map?.GetMyLocation();
-
-      await this.map?.moveCamera({
-        target: myLocation.latLng,
-        zoom: 18
-      });
-
-      this.originMarker = this.map?.addMarker({
-        title: 'Origem',
-        icon: '#000',
-        animation: GoogleMapsAnimation.DROP,
-        position: myLocation.latLng
-      });
-    } catch (error) {
-      console.error(error);
-    } finally {
-      this.loading.dismiss();
-    }
-  }
 
 
   searchChanged() {
@@ -214,9 +139,6 @@ export class Tab1Page implements OnInit {
 
     this.googleAutocomplete.getPlacePredictions({ input: this.search}, (predictions: any[]) => {
       this.searchResults = predictions;
-
-
-
     });
   }
 
@@ -233,54 +155,27 @@ export class Tab1Page implements OnInit {
   //   });
   // }
 
-  async calcRoute(item: any){
-    this.search= '';
-    this.destination = item ;
+  async criarLinha() {
+    const polyline: Polyline[] = [
+     {
+      path: [
+        {lat: -22.612898, lng: -48.800939},
+        {lat: -22.617365, lng: -48.797785},
+        {lat: -22.614468, lng: -48.789003}
+      ],
+      strokeColor: "#FF0000",
+      strokeWeight: 5,
+      geodesic: true,
+     }
+    ];
 
-    let geocoder = new google.maps.Geocoder();
-    const info: any = await geocoder.geocode({address: this.destination.description});
-
-
-
-    let markerDestination: Marker | undefined;
-
-    if (this.map) {
-      markerDestination = this.map.addMarkers({
-        title: this.destination.description,
-        icon: '#000',
-        animation: GoogleMapsAnimation.DROP,
-        position: info[0].position
-      });
+    if (this.newMap) {
+      const result = await this.newMap.addPolylines(polyline);
+      this.polyLineId = result[0];
+    } else {
+      console.error("newMap não está definido. Certifique-se de que foi inicializado corretamente.");
     }
+  }
 
 
-      if (this.map && this.originMarker) {
-        const posLat = markerDestination?.coordinate.lat;
-        const posLng = markerDestination?.coordinate.lng
-
-        const positionMarker: ILatLng = {
-          lat: posLat || 0,
-          lng: posLng || 0
-        }
-
-        console.log(positionMarker)
-
-        const posLatO = this.originMarker.coordinate.lat
-        const posLngO = this.originMarker.coordinate.lng
-
-        const positionOrigin: ILatLng = {
-          lat: posLatO || 0,
-          lng: posLngO || 0
-        }
-
-        console.log(positionOrigin)
-
-        this.map.addPolyline({
-          points: [positionOrigin, positionMarker],
-          color: '#000',
-          width: 3
-        });
-      }
-
-}
 }
