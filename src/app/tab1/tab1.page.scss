@@ -32,8 +32,25 @@ capacitor-google-map {
 
 ion-list{
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
+
 ion-searchbar {
   background-color:#fff;
+  position: absolute;
+  z-index: 4;
+  background: none;
 }
+ion-input{
+  background-color: blue;
+}
+
+// ion-searchbar {
+//   background-color:#fff;
+//   position: absolute;
+//   z-index: 4;
+//   background: none;
+//   display: flex;
+//   margin-left: 200px;
+//   width: 20px;
+// }

@@ -41,24 +41,24 @@ export class Tab1Page{
   loading: any;
   private polyLineId: any;
 
-  public data = [
-    'Linha 1',
-    'Linha 2',
-    'Linha 5',
-    'Linha 6',
-    'Linha 7',
-    'Linha 8',
-    'Linha 10',
-    'Linha 11',
-    'Linha 15',
-    'Linha 19',
-  ];
-  public results = [...this.data];
+  // public data = [
+  //   'Linha 1',
+  //   'Linha 2',
+  //   'Linha 5',
+  //   'Linha 6',
+  //   'Linha 7',
+  //   'Linha 8',
+  //   'Linha 10',
+  //   'Linha 11',
+  //   'Linha 15',
+  //   'Linha 19',
+  // ];
+  // public results = [...this.data];
 
-  handleInput(event:any) {
-    const query = event.target.value.toLowerCase();
-    this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
-  }
+  // handleInput(event:any) {
+  //   const query = event.target.value.toLowerCase();
+  //   this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+  // }
 
   constructor(
     private plataform: Platform,
@@ -120,6 +120,7 @@ export class Tab1Page{
     }
   }
 
+
   calculateAndDisplayRoute() {
     const start = (this.startInput.nativeElement as HTMLInputElement).value;
     const end = (this.endInput.nativeElement as HTMLInputElement).value;
@@ -156,6 +157,9 @@ export class Tab1Page{
     });
   }
 
+
+
+
   async criarLinha() {
     const polyline: Polyline[] = [
      {
@@ -173,11 +177,13 @@ export class Tab1Page{
         {lat: -22.603469, lng: -48.781402},
         {lat: -22.603119, lng: -48.781812},
         {lat: -22.601060, lng: -48.779399}
+
       ],
       strokeColor: "#1E90FF",
       strokeWeight: 5,
       geodesic: true,
      }
+
     ];
 
     if (this.newMap) {
