@@ -33,6 +33,26 @@ export class Tab1Page{
     lat: -22.624715868355583,
     lng: -48.79210973635069
   };
+  // defaultMarkerInfo = {
+  //   iconSize: {
+  //     width: 40,
+  //     height: 40
+  //   },
+  //   draggable: false,
+  //   iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png"
+  // }
+  // async addMarkers(lat: any, lng: any) {
+  //   // Add a marker to the map
+  //   // if(this.markerId) this.removeMarker();
+  //   await this.newMap.addMarkers([
+  //     {
+  //       coordinate: {
+  //         lat: lat,
+  //         lng: lng,
+  //       },
+  //       ...this.defaultMarkerInfo
+  //     }
+  //     ])
 
   markerId!: string;
   public search: string = '';
@@ -156,6 +176,7 @@ export class Tab1Page{
       this.searchResults = predictions;
     });
   }
+
 
 
 
