@@ -3,10 +3,8 @@ import {  MapType, Marker, GoogleMap, Polyline } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Route, Router } from '@angular/router';
-import { Geocoder } from '@ionic-native/google-maps/ngx';
-import { map } from 'rxjs';
 import { LoadingController, Platform } from '@ionic/angular';
-import { PolylineOptions } from '@ionic-native/google-maps';
+
 
 declare var google: any;
 
@@ -43,6 +41,25 @@ export class Tab1Page{
   loading: any;
   private polyLineId: any;
 
+  public data = [
+    'Linha 1',
+    'Linha 2',
+    'Linha 5',
+    'Linha 6',
+    'Linha 7',
+    'Linha 8',
+    'Linha 10',
+    'Linha 11',
+    'Linha 15',
+    'Linha 19',
+  ];
+  public results = [...this.data];
+
+  handleInput(event:any) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+  }
+
   constructor(
     private plataform: Platform,
     private loadinCtrl: LoadingController,
@@ -50,9 +67,6 @@ export class Tab1Page{
     private route2: Router,
   )
    {}
-
-
-
 
   navigateIcon() {
     this.route2.navigate(["/perfil"])
@@ -142,7 +156,6 @@ export class Tab1Page{
     });
   }
 
-
   async criarLinha() {
     const polyline: Polyline[] = [
      {
@@ -174,6 +187,5 @@ export class Tab1Page{
       console.error("newMap não está definido. Certifique-se de que foi inicializado corretamente.");
     }
   }
-
 
 }

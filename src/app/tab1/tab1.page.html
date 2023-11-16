@@ -16,6 +16,13 @@
 
 <ion-content [fullscreen]="true">
   <ion-searchbar color="light" show-clear-button="always"  placeholder="Pesquise sua linha"></ion-searchbar>
+  <!-- <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar> -->
+
+<!-- <ion-list>
+  <ion-item *ngFor="let result of results">
+    <ion-label>{{ result }}</ion-label>
+  </ion-item>
+</ion-list> -->
 
   <!-- <ion-searchbar [(ngModel)]="destinationLocation" show-clear-button="always" placeholder="Pesquise seu destino"></ion-searchbar> -->
   <capacitor-google-map #map></capacitor-google-map>
@@ -26,7 +33,5 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
       <ion-button expand="block" (click)="criarLinha()">Carregar rota</ion-button>
-  </ion-toolbar>
 </ion-footer>
